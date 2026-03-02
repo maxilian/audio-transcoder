@@ -2,8 +2,8 @@ package audio_transcoder
 
 /*
 #cgo CFLAGS: -I${SRCDIR}/3rd/include
-#cgo LDFLAGS: -L${SRCDIR}/3rd/lib -lfaac
 #include "codec.h"
+#include "aac_decoder.h"
 */
 
 import "C"
