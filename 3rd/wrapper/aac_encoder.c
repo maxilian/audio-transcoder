@@ -34,7 +34,11 @@ static void *aac_encoder_create(uint32_t sample_rate,
         return NULL;
     }
 
-    audio_codec_t *codec = (audio_codec_t *)calloc(sizeof(audio_codec_t), 0);
+    audio_codec_t *codec = (audio_codec_t *)calloc(1, sizeof(audio_codec_t));
+    if (!codec) {
+        faacEncClose(encoder);
+        return NULL;
+    }
     codec->handle = encoder;
     codec->sample_rate = sample_rate;
     codec->channels = channels;
@@ -94,6 +98,11 @@ static int aac_encoder_encode(void *encoder,
 // 销毁编码器
 static void aac_encoder_destroy(void *encoder)
 {
-    faacEncClose(((audio_codec_t *)encoder)->handle);
-    free((audio_codec_t *)encoder);
+    audio_codec_t *codec = (audio_codec_t *)encoder;
+
+    if (codec->extra_data)
+        free(codec->extra_data);
+
+    faacEncClose(codec->handle);
+    free(codec);
 }
