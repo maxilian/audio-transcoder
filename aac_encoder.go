@@ -5,7 +5,6 @@ package audio_transcoder
 #include "codec.h"
 #include "aac_encoder.h"
 */
-
 import "C"
 
 import (
