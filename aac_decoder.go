@@ -4,8 +4,8 @@ package audio_transcoder
 #cgo CFLAGS: -I${SRCDIR}/3rd/include -I${SRCDIR}/3rd/wrapper
 #include <stdint.h>
 #include <string.h>
-#include "codec.h"
-#include "faac.h"
+#include "aac_decoder.h"
+#include "neaacdec.h"
 */
 
 import "C"

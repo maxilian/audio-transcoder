@@ -2,7 +2,7 @@
 #include "faac.h"
 
 // 初始化AAC编码器
-static void *aac_encoder_create(uint32_t sample_rate,
+void *aac_encoder_create(uint32_t sample_rate,
                                 uint32_t channels,
                                 int adts, // 编码输出的帧是否包含ADTS头 0:不包含/1:包含
                                 int aot)  // 音频对象类型 1:MAIN/2:LC/3:SSR/4:LTP
@@ -74,7 +74,7 @@ static void *aac_encoder_create(uint32_t sample_rate,
 }
 
 // 编码PCM数据为AAC
-static int aac_encoder_encode(void *encoder,
+int aac_encoder_encode(void *encoder,
                               uint8_t *pcm,
                               uint32_t pcm_size,
                               uint8_t *aac_buffer,
@@ -96,7 +96,7 @@ static int aac_encoder_encode(void *encoder,
 }
 
 // 销毁编码器
-static void aac_encoder_destroy(void *encoder)
+void aac_encoder_destroy(void *encoder)
 {
     audio_codec_t *codec = (audio_codec_t *)encoder;
 

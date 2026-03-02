@@ -1,7 +1,7 @@
 #include "codec.h"
 #include "neaacdec.h"
 
-static void *aac_decoder_create(uint8_t *adts, uint32_t adts_size, uint8_t *audio_config, uint32_t config_size)
+void *aac_decoder_create(uint8_t *adts, uint32_t adts_size, uint8_t *audio_config, uint32_t config_size)
 {
     assert(adts != NULL || audio_config != NULL);
 
@@ -36,13 +36,13 @@ static void *aac_decoder_create(uint8_t *adts, uint32_t adts_size, uint8_t *audi
     return decoder;
 }
 
-static void aac_decoder_destroy(void *decoder)
+void aac_decoder_destroy(void *decoder)
 {
     NeAACDecClose(((audio_codec_t *)decoder)->handle);
     free(((audio_codec_t *)decoder));
 }
 
-static int aac_decoder_decode(void *decoder, uint8_t *frame, uint32_t size, uint8_t *pcm)
+int aac_decoder_decode(void *decoder, uint8_t *frame, uint32_t size, uint8_t *pcm)
 {
     NeAACDecFrameInfo info;
     void *sample_buffer = NeAACDecDecode(((audio_codec_t *)decoder)->handle, &info, frame, size);
