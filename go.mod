@@ -1,4 +1,4 @@
-module github.com/lkmio/audio-transcoder
+module github.com/maxilian/audio-transcoder
 
 require github.com/lkmio/g726 v0.1.3
 
