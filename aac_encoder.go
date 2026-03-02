@@ -2,7 +2,7 @@ package audio_transcoder
 
 /*
 #cgo CFLAGS: -I${SRCDIR}/3rd/include
-#include "faaccfg.h"
+#include "faac.h"
 #include "codec.h"
 #include "aac_encoder.h"
 */
