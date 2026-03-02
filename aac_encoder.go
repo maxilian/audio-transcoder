@@ -1,8 +1,9 @@
 package audio_transcoder
 
 /*
-#include "aac_encoder.c"
+#include "3rd/wrapper/aac_encoder.c"
 */
+
 import "C"
 
 import (
