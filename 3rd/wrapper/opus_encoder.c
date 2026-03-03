@@ -2,7 +2,7 @@
 #include "opus.h"
 
 // 初始化Opus编码器
-static OpusEncoder *opus_encoder_create2(int sample_rate, int channels, int application)
+OpusEncoder *opus_encoder_create2(int sample_rate, int channels, int application)
 {
     int err;
     OpusEncoder *enc = opus_encoder_create(sample_rate, channels, application, &err);
@@ -21,7 +21,7 @@ static OpusEncoder *opus_encoder_create2(int sample_rate, int channels, int appl
 }
 
 // 编码PCM数据为Opus
-static int opus_encoder_encode(OpusEncoder *enc,
+int opus_encoder_encode(OpusEncoder *enc,
                                uint8_t *pcm,
                                int frame_size,
                                uint8_t *data,
@@ -38,7 +38,7 @@ static int opus_encoder_encode(OpusEncoder *enc,
 }
 
 // 销毁编码器
-static void opus_encoder_destroy2(OpusEncoder *enc)
+void opus_encoder_destroy2(OpusEncoder *enc)
 {
     opus_encoder_destroy(enc);
 }

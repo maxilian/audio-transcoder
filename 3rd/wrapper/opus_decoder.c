@@ -2,7 +2,7 @@
 #include "opus.h"
 
 // 创建Opus解码器
-static void *opus_decoder_create2(int sample_rate, int channels)
+void *opus_decoder_create2(int sample_rate, int channels)
 {
     int err;
     OpusDecoder *dec = opus_decoder_create(sample_rate, channels, &err);
@@ -21,7 +21,7 @@ static void *opus_decoder_create2(int sample_rate, int channels)
 }
 
 // 解码Opus数据为PCM
-static int opus_decoder_decode(void *dec,
+int opus_decoder_decode(void *dec,
                                const uint8_t *data,
                                int data_size,
                                uint8_t *pcm,
@@ -38,7 +38,7 @@ static int opus_decoder_decode(void *dec,
 }
 
 // 销毁解码器
-static void opus_decoder_destroy2(void *dec)
+void opus_decoder_destroy2(void *dec)
 {
     opus_decoder_destroy(((audio_codec_t *)dec)->handle);
     free(((audio_codec_t *)dec));

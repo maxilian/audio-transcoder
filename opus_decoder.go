@@ -2,9 +2,11 @@ package audio_transcoder
 
 /*
 #cgo CFLAGS: -I${SRCDIR}/3rd/include
-#include "faac.h"
+#include <stdint.h>
+#include <string.h>
 #include "codec.h"
-#include "opus.h"
+#include "opus_decoder.h"
+
 */
 import "C"
 import (
