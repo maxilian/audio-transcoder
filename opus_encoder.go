@@ -5,7 +5,6 @@ package audio_transcoder
 #include "faac.h"
 #include "codec.h"
 #include "opus.h"
-#include "opus_encoder.h"
 */
 import "C"
 import "fmt"
