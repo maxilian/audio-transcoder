@@ -1,7 +1,11 @@
 package audio_transcoder
 
 /*
-#include "opus_encoder.c"
+#cgo CFLAGS: -I${SRCDIR}/3rd/include
+#include "faac.h"
+#include "codec.h"
+#include "opus.h"
+#include "opus_encoder.h"
 */
 import "C"
 import "fmt"
